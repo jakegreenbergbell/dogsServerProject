@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>dawwwwwwwwg</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+
+    body{
+      background-image: url("https://wallpapercave.com/wp/IFrazkP.jpg");
+      background-size: 1064px;
+      font-family: "Courier New", Monospace, sans-serif;
+    }
+    table {border-style: double;
+          border-radius: 10px;
+    }
+    img   {height:20px;
+           width:20px;}
+    input{border-radius: 10px;
+          height: 30px;
+    }
+
+        /*p    {color: red;}*/
+
+
+  </style>
+  <script src="script.js"></script>
+
+
+</head>
+<center><body>
+
+    <h2>Dummy Dog Directory</h2>
+    <form action="/api/addDog" method="POST">
+      <input type="text" placeholder="new breed" name="breed">
+      <input type="text" placeholder="new name" name="name">
+    <input type="submit">
+  </form>
+
+  <table>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><b>BREED</b></td>
+        <td><b>NAME</b></td>
+    </tr>
+    <% for(var i=0; i<jake.length; i++) {%>
+      <tr>
+        <td>
+          <a class="update" style ="cursor:pointer">
+          <img src="images/update.png" class="update" onclick="switchAndSend('<%=jake[i].name%>' , '<%=jake[i].breed%>')"><a/>
+        </td>
+        <td><a class="delete" href="/api/delete/<%= jake[i].name%>">
+          <img src="images/delete.png"></a>
+        </td>
+        <span id="needsUpdating">
+          <td id= "<%=jake[i].breed%>"> <%= jake[i].breed %></td>
+        <td id="<%=jake[i].name%>"> <%= jake[i].name %></td></span>
+      </tr>
+    <% } %>
+  </table>
+
+</body></center>
